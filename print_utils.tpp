@@ -15,6 +15,12 @@ template <typename T> void p(const std::vector<T> &vec) {
     std::cout << "]" << std::endl;
 }
 
+template <typename First, typename... Rest>
+void p(const First &first, const Rest &...rest) {
+    std::cout << first << " ";
+    p(rest...); // Recursively call p on remaining arguments
+}
+
 template <typename K, typename V> void p(const std::unordered_map<K, V> &map) {
     std::cout << "{ ";
     for (const auto &[key, value] : map) {
